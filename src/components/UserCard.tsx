@@ -21,7 +21,6 @@ export const UserCard = ({ id }: UserCardProps) => {
       {data && (
         <>
           <div style={{ fontWeight: 700 }}>{data.name}</div>
-          <img alt="pokemon" src={data.sprites.front_shiny} />
         </>
       )}
     </Container>

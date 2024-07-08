@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { UserCard } from "./components/UserCard";
-import { UserList } from "./components/UserList";
+import { Users } from "./components/Users";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -12,18 +10,9 @@ const queryClient = new QueryClient({
 });
 
 function App() {
-  const ids = ["bulbasaur", "charmander", "squirtle"];
-  const [selectedItem, setSelectedItem] = useState("bulbasaur");
-
   return (
     <QueryClientProvider client={queryClient}>
-      <UserList
-        ids={ids}
-        selectedId={selectedItem}
-        onSelect={(id) => setSelectedItem(id)}
-      />
-      <hr />
-      <UserCard id={selectedItem} />
+      <Users />
     </QueryClientProvider>
   );
 }

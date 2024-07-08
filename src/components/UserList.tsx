@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { User } from "../api/user";
 
 const Container = styled.div`
   display: flex;
@@ -15,20 +16,23 @@ const Container = styled.div`
 `;
 
 type UserListProps = {
+  list: User[];
   selectedId: string;
-  ids: string[];
   onSelect: (id: string) => void;
 };
-export const UserList = ({ selectedId, ids, onSelect }: UserListProps) => {
+export const UserList = ({ list, selectedId, onSelect }: UserListProps) => {
   return (
     <Container>
-      {ids.map((id) => (
+      {list.map((item) => (
         <a
+          key={item.id}
           href="#"
-          style={{ color: selectedId === id ? "rebeccapurple" : undefined }}
-          onClick={() => onSelect(id)}
+          style={{
+            color: selectedId === item.id ? "rebeccapurple" : undefined,
+          }}
+          onClick={() => onSelect(item.id)}
         >
-          {id}
+          {item.name}
         </a>
       ))}
     </Container>

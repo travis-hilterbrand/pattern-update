@@ -4,14 +4,17 @@ import { User } from "../api/user";
 export const mockUsers: User[] = [
   {
     id: "1",
+    color: "tomato",
     name: "bulbasaur",
   },
   {
     id: "2",
+    color: "mediumseagreen",
     name: "charmander",
   },
   {
     id: "3",
+    color: "bisque",
     name: "squirtle",
   },
 ];
@@ -20,6 +23,7 @@ export const mockUsers: User[] = [
 export const db = factory({
   user: {
     id: primaryKey(String),
+    color: () => "Color",
     name: () => "Name",
   },
 });

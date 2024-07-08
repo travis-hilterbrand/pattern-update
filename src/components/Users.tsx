@@ -17,7 +17,7 @@ export const Users = () => {
     <>
       <UserList
         list={data}
-        selectedId={""}
+        selectedId={selectedId}
         onSelect={(id) => setSelectedId(id)}
       />
       <hr />

@@ -17,7 +17,7 @@ const Container = styled.div`
 
 type UserListProps = {
   list: User[];
-  selectedId: string;
+  selectedId: string | undefined;
   onSelect: (id: string) => void;
 };
 export const UserList = ({ list, selectedId, onSelect }: UserListProps) => {
@@ -28,7 +28,7 @@ export const UserList = ({ list, selectedId, onSelect }: UserListProps) => {
           key={item.id}
           href="#"
           style={{
-            color: selectedId === item.id ? "rebeccapurple" : undefined,
+            color: selectedId === item.id ? "#000" : undefined,
           }}
           onClick={() => onSelect(item.id)}
         >

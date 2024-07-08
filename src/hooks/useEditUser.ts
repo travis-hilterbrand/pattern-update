@@ -1,10 +1,10 @@
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { User, putUser } from "../api/user";
 import { USERS_QUERY_KEY, USER_QUERY_KEY } from "./constants";
 
 export const useEditUser = () => {
   const queryClient = useQueryClient();
-  const { isLoading, mutateAsync, status } = useMutation({
+  const { isPending, mutateAsync, status } = useMutation({
     mutationFn: (user: User) => {
       return putUser(user);
     },
@@ -17,9 +17,6 @@ export const useEditUser = () => {
       return { previous };
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: [USER_QUERY_KEY],
-      });
       queryClient.invalidateQueries({
         queryKey: [USERS_QUERY_KEY],
       });
@@ -35,7 +32,7 @@ export const useEditUser = () => {
   });
 
   const editUser = async (userToEdit: User) => {
-    if (status !== "loading") {
+    if (status !== "pending") {
       const user = { ...userToEdit };
       const name = user.name;
       const lastChar = name.charAt(name.length - 1);
@@ -48,5 +45,5 @@ export const useEditUser = () => {
       await mutateAsync(user);
     }
   };
-  return { editUser, isSaving: isLoading };
+  return { editUser, isSaving: isPending };
 };

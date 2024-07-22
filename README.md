@@ -91,3 +91,7 @@ https://github.com/travis-hilterbrand/pattern-query
 https://dev.to/manishkc104/optimistic-and-pessimistic-ui-rendering-2n55
 https://tkdodo.eu/blog/react-query-error-handling
 https://tanstack.com/query/latest/docs/framework/react/typescript#registering-a-global-error
+
+> IMPORTANT NOTE
+
+For simplicity/ robustness, this project uses a mocked API that is enabled with `mock service worker` <https://mswjs.io/>.

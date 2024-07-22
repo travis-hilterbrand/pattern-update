@@ -8,26 +8,13 @@ export const useEditUser = () => {
     mutationFn: (user: User) => {
       return putUser(user);
     },
-    onMutate: (editedUser) => {
-      const previous = queryClient.getQueryData([
-        USER_QUERY_KEY,
-        editedUser.id,
-      ]);
-      queryClient.setQueryData([USER_QUERY_KEY, editedUser.id], editedUser);
-      return { previous };
-    },
-    onSuccess: () => {
+    onSuccess: (user: User) => {
+      queryClient.invalidateQueries({
+        queryKey: [USER_QUERY_KEY, user.id],
+      });
       queryClient.invalidateQueries({
         queryKey: [USERS_QUERY_KEY],
       });
-    },
-    onError: (_error, newResource, context) => {
-      if (context?.previous) {
-        queryClient.setQueryData(
-          [USER_QUERY_KEY, newResource.id],
-          context.previous
-        );
-      }
     },
   });
 

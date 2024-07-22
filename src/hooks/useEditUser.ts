@@ -36,7 +36,7 @@ export const useEditUser = () => {
       const user = { ...userToEdit };
       const name = user.name;
       const lastChar = name.charAt(name.length - 1);
-      let counter = parseInt(lastChar);
+      const counter = parseInt(lastChar);
       if (isNaN(counter)) {
         user.name += "-1";
       } else {

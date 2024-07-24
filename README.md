@@ -87,10 +87,10 @@ Query Keys are a very important core concept in React Query. They are necessary 
 
 ## References
 
-https://github.com/travis-hilterbrand/pattern-query
-https://dev.to/manishkc104/optimistic-and-pessimistic-ui-rendering-2n55
-https://tkdodo.eu/blog/react-query-error-handling
-https://tanstack.com/query/latest/docs/framework/react/typescript#registering-a-global-error
+- https://github.com/travis-hilterbrand/pattern-query
+- https://dev.to/manishkc104/optimistic-and-pessimistic-ui-rendering-2n55
+- https://tkdodo.eu/blog/react-query-error-handling
+- https://tanstack.com/query/latest/docs/framework/react/typescript#registering-a-global-error
 
 > IMPORTANT NOTE
 
